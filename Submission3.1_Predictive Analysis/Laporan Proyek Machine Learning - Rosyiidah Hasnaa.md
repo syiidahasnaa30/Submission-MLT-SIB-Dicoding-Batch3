@@ -187,17 +187,51 @@ Dari hasil akurasi diatas, didapatkan bahwasanya nilai akurasi tertinggi diraih 
 Pada proyek ini, metrik yang digunakan sebagai dasar evaluasi model adalah beberpa metrik berikut :
 - **Accuracy**
 
+Accuracy merupakan sebuah metrik yang menunjukkan seberapa sering model yang telah kita bangun menunjukkan hasil prediksi yang sesuai dengan target. Untuk menghitung nilai accuracy dapat menggunakan rumus berikut :
+
+![image](https://user-images.githubusercontent.com/67575741/194710351-e2a7d590-15bb-4bea-beda-ab1687dd777f.png)
+
+**TN :** Terjadi ketika model memprediksi hasil negatif, dan pada kenyatannya target class label juga negatif
+
+**TP :** Terjadi ketika model memprediksi hasil positif, dan pada kenyatannya target class label juga positif
+
+**FN :** Terjadi ketika model memprediksi hasil negatif, dan pada kenyatannya target class label bernilai positif
+
+**FP :** Terjadi ketika model memprediksi hasil positif, dan pada kenyatannya target class label bernilai negatif
+
 - **Precision**
+
+Precision merupakan pembagian dari jumlah total contoh positif yang diklasifikasikan bernilai benar dengan jumlah total contoh positif yang diprediksi. Rumusan dari precision adalah sebagai berikut:
+
+![image](https://miro.medium.com/max/1400/1*X9DckJuXGhidX9g4EZK0HA.png)
+
 - **Recall**
+
+Recall merupakan rasio dari jumlah total contoh positif yang diklasifikasikan bernilai benar dibagi dengan jumlah total contoh positif. Rumusan dari recall adalah sebagai berikut:
+
+![image](https://miro.medium.com/max/1400/1*flEXprkoE-I39lKVX4iPqw.png)
+
 - **F1-Score**
+
+F1-Score didapatkan dari hasil perkalian antara precision dan recall yang kemudian dibagi dengan penjumlahan antara precision dengan recall lalu dikalikan dua. F-1 Score cocok digunakan pada dataset yang persebaran antara label positif dan negatif tidak merata.Rumusan dari f-1 score adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/67575741/194710986-012c121c-f4da-4a07-b7fd-2e8e600472c6.png)
+
+Pada proyek ini untuk menghitung nilai akurasi, precsion, recall dan f-1 score dilakukan dengan menggunakan modul accuracy_score, precision_score, recall_score dan f1_score dari library Scikitlearn.
 
 ## Referensi
 [[1](https://ejournal.unesa.ac.id/index.php/mathunesa/article/view/45652)] Adi, S., & Wintarti, A. (2022). KOMPARASI METODE SUPPORT VECTOR MACHINE (SVM), K-NEAREST NEIGHBORS (KNN), DAN RANDOM FOREST (RF) UNTUK PREDIKSI PENYAKIT GAGAL JANTUNG. MATHunesa: Jurnal Ilmiah Matematika, 10(2), 258-268.
+
 [[2](https://www.kaggle.com/fedesoriano/heart-failure-prediction)] fedesoriano. (September 2021). Heart Failure Prediction Dataset.
+
 [[3](https://vincentmichael089.medium.com/machine-learning-2-logistic-regression-96b3d4e7b603)] Machine Learning: Mengenal Logistic Regression
+
 [[4](https://binus.ac.id/bandung/2019/12/algoritma-naive-bayes/)] Algoritma Naive Bayes
+
 [[5](https://medium.com/@raihanaglest/pemahaman-decision-tree-3cb3ab1a27c9)] Pemahaman Decision Tree
+
 [[6](https://id.wikipedia.org/wiki/Random_forest)] Random Forest
+
 [[7](https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d)] XGBoost Algorithm: Long May She Reign
 
 
