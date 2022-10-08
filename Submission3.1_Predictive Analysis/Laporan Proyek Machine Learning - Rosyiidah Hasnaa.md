@@ -52,40 +52,60 @@ Itulah sebelas fitur yang terdapat pada heart failure dataset, sedangkan target 
 Selain itu, pada proyek ini penulis juga melakukan tahap explorasi. Tahap explorasi data dilakukan dalam dua tahap, yaitu tahap _Univariate Analysis_ dan tahap _Mutivariate Analysis_.
 
 **1. _Univariate Analysis_**
+
 Pada tahap _univariate analysis_ proses yang dilakukan adalah mengekplorasi data untuk mengetahui persebaran setiap fiturnya dalam dataset yang tersedia.
 * Persebaran Fitur _Sex_ pada dataset
-![Image of Dataset](url)
+
+![univariate_sex](https://user-images.githubusercontent.com/67575741/194702259-7171e2f4-c633-4091-84ac-bfab60185b58.png)
+
 Dari data diatas dapat diketahui bahwa persebaran jumlah pasien dengan jenis kelamin laki-laki pada dataset mencapai 79% dan presentase pasien perempuan pada dataset mencapai 21%.
 
 * Persebaran Fitur _Chest Pain Type_ 
-![Image of Dataset](url)
+
+![univariate_chestpaintype](https://user-images.githubusercontent.com/67575741/194702345-a4008ac3-1a66-4a8b-bf15-3f79b61dd113.png)
+
 Dari data diatas, dapat diketahui bahwasanya persebaran tipe nyeri dada ASY menempati posisi terbesar dengan presentasi 54%. Kemudian, disusul dengan NAP sebesar 22,1%, tipe ATA sebesar 18.8% dan yang terakhir TA dengan presentase 5%.
 
 * Persebaran Fitur _Resting ECG_
-![Image of Dataset](url)
+
+![ecg univariate](https://user-images.githubusercontent.com/67575741/194702525-d1b84ee2-5435-4d4a-b97f-21b20bb21832.png)
+
 Dari data diatas, dapat diketahui bahwa persebaran hasil elektrodiagram pasien ketika beristirahat(resting ecg) normal sebesar 60,1%, sedangkan pasien yang mengalami kelaian gelombang ST sebesar 19,4% dan yang meiliki kemungkinan mengalami hipertrofi ventrikel kiri(LVH) sebesar 20,5%.
 
 * Persebaran Fitur _ST Slope_
-![Image of Dataset](url)
+
+![ST Slope univariate](https://user-images.githubusercontent.com/67575741/194702542-b6abcd8b-6fef-416c-ae7d-ae4db2b04d6e.png)
+
 Dari data diatas, dapat diketahui bahwa persebaran ST Slope flat sebesar 50,1%, Up sebesar 43%, dan down sebesar 6,9%.
 
 * Persebaran Fitur Numerik
+
 Fitur numerikal meliputi Age,RestingBP,Cholesterol,FastingBS,MaxHR,Oldpeak dan targetnya yang berupa nilai numerik yaitu HeartDisease
-![Image of Dataset](url)
+
+![numerik univariate](https://user-images.githubusercontent.com/67575741/194702598-810669b0-65de-4f69-b6ee-f7d2864652f4.png)
  
- Dari data tersebut dapat diketahui bahwasanya dalam dataset pasien memiliki rentang usia antara 28-77 tahun, dan didominasi oleh rentang usia 50-60 tahun. Sedangkan untuk resting bp pasien rata-rata didominasi pada rentang 100-175. Sedangkan tingkat kolesterol pasien pada dataset didominasi pada rentang 100-400 an. Sedangkan yang memiliki tingkat kolesterol sebesar nol mencapai 170-an pasien. Pada data detak jantung, maksimal detak jantung pasien berada pada rentang 100-200. Sedangkan untuk oldpeak berada pada rentang 0-4. Sedangkan untuk fasting bs yang memiliki nilai lebih dari 120 mmHg mencapai 200 pasien, selebihnya fasting bs tidak mencapai 10 mmHg. Pada grafik terakhir, dapat diketahui persebaran pasien yang memiliki penyakit gagal jantung mencapai 500 pasien, sedangkan yang tidak mengidap penyakit gagal jantung mencapai 400 pasien.
+Dari data tersebut dapat diketahui bahwasanya dalam dataset pasien memiliki rentang usia antara 28-77 tahun, dan didominasi oleh rentang usia 50-60 tahun. Sedangkan untuk resting bp pasien rata-rata didominasi pada rentang 100-175. Sedangkan tingkat kolesterol pasien pada dataset didominasi pada rentang 100-400 an. Sedangkan yang memiliki tingkat kolesterol sebesar nol mencapai 170-an pasien. Pada data detak jantung, maksimal detak jantung pasien berada pada rentang 100-200. Sedangkan untuk oldpeak berada pada rentang 0-4. Sedangkan untuk fasting bs yang memiliki nilai lebih dari 120 mmHg mencapai 200 pasien, selebihnya fasting bs tidak mencapai 10 mmHg. Pada grafik terakhir, dapat diketahui persebaran pasien yang memiliki penyakit gagal jantung mencapai 500 pasien, sedangkan yang tidak mengidap penyakit gagal jantung mencapai 400 pasien.
 
 **2. _Mutivariate Analysis_**
+
 Multivariate Analysis menunjukkan hubungan antara dua atau lebih variabel pada data. Berfungsi untuk mengetahui hubungan antar fitur pada dataset.
 
-![Image Dataset](url)
+![sex_multi](https://user-images.githubusercontent.com/67575741/194702620-bedf1ef7-8474-4b89-a838-8aa43006f904.png)
+![chestpaintype multi](https://user-images.githubusercontent.com/67575741/194702623-71063aae-eabb-428d-983b-9931aa6c4c75.png)
+![resting ecg multi](https://user-images.githubusercontent.com/67575741/194702631-98cc218b-0b80-407c-8c1b-7a8bc5cf8616.png)
+![exercise angine multi](https://user-images.githubusercontent.com/67575741/194702639-9947d249-1f0d-4ff7-b0c4-5b123a5c3522.png)
+![st slope mlti](https://user-images.githubusercontent.com/67575741/194702655-dc7c194b-279d-434a-8fce-05bf85b7fac5.png)
+
 Dari ilustrasi diatas, dapat diketahu bahwasanya sebagian besar penderita gagal jantung adalah pasien laki-laki.Apabila berdasarkan jenis nyeri jantung yang dialami kebanyakn pengidap gagal jantung memiliki jenis nyeri dada ASY. Sedangkan untuk keterkaitan antara RestingECG dengan penyakit gagal jantung cenderung tidak adanya keterkaitan, karena persebarannya hampir rata. Untuk exercise angina cenderung berpengaruh pada penyakit gagal jantung. Sedangkan untuk ST Slope penderita gagal jantung didominasi oleh pasien yang memiliki ST Slope normal.
 
 Untuk persebaran pasien yang mengidap gagal jantung berdasarkan fitur numerik seperti yang tampak pada gambar dibawah
-![Image dataset](url)
+
+![numerik multi](https://user-images.githubusercontent.com/67575741/194702665-f3b3845e-c6aa-4726-b7a2-ab3372ed5766.png)
 
 Selain itu, itu melihat korelasi antar fitur pada proyek ini penulis juga memanfaatkan matriks kolerasi yangg didapatkan melalui fungsi corr yang tersedia pada library pandas. Pada matriks korelasi, warna gelap menandakan korelasi negatif, sedangkan warna terang menandakan korelasi positif. 
-![Image Dataset](url)
+
+![newplot](https://user-images.githubusercontent.com/67575741/194702678-ffe7daa9-7b67-40bc-8a07-c6486cd94766.png)
+
 Hasil diatas menunjukkan bahwa heart disease memiliki korelasi negatif dengan Cholesterol dan MaxHR. Dan Heart disease memiliki korelasi positif dengan fitur Oldpeak,FastingBS dan Age. 
 
 ## Data Preparation
@@ -158,16 +178,18 @@ XGboost adalah algoritma yang merupakan implementasi lanjutan dari algoritma pen
         -   Dilengkapi dengan built in cross validation
 
 Pada semua algoritma yang dilakukan, data training dimasukkan pada model secara langsung setelah melewati tahap pre-processing. Namun, pada algoritma decision tree terdapat parameter tambahan berupa criterion yang diisi dengan entropy. Sedangka pada random forest terdapat parameter n_estimator sebesar 200 dan criterion juga entropi. Dari kelima algoritma tersebut, didapatkan hasil metric akurasi sebagai berikut :
-![Tabel Matriks Akurasi]()
+
+![Screenshot 2022-10-08 165153](https://user-images.githubusercontent.com/67575741/194702701-33eb42fa-4a9d-44eb-838a-97f0214143ca.png)
+
+Dari hasil akurasi diatas, didapatkan bahwasanya nilai akurasi tertinggi diraih oleh algoritma random forest sebesar 85% dan disusul oleh algoritma XGBoost dengan akurasi sebesar 81%. Dari pelatihan model tersebut didapatkan bahwasanya algoritma tersebut mampu digunakan untuk melakukan prediski penyakit gagal jantung pada pasien.
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Pada proyek ini, metrik yang digunakan sebagai dasar evaluasi model adalah beberpa metrik berikut :
+- **Accuracy**
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
-
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+- **Precision**
+- **Recall**
+- **F1-Score**
 
 ## Referensi
 [[1](https://ejournal.unesa.ac.id/index.php/mathunesa/article/view/45652)] Adi, S., & Wintarti, A. (2022). KOMPARASI METODE SUPPORT VECTOR MACHINE (SVM), K-NEAREST NEIGHBORS (KNN), DAN RANDOM FOREST (RF) UNTUK PREDIKSI PENYAKIT GAGAL JANTUNG. MATHunesa: Jurnal Ilmiah Matematika, 10(2), 258-268.
