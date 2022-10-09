@@ -54,15 +54,16 @@ Selain itu, pada proyek ini penulis juga melakukan tahap explorasi. Tahap explor
 **1. _Univariate Analysis_**
 
 Pada tahap _univariate analysis_ proses yang dilakukan adalah mengekplorasi data untuk mengetahui persebaran setiap fiturnya dalam dataset yang tersedia.
-* Persebaran Fitur _Sex_ pada dataset
 
 ![univariate_sex](https://user-images.githubusercontent.com/67575741/194702259-7171e2f4-c633-4091-84ac-bfab60185b58.png)
 
-Dari data diatas dapat diketahui bahwa persebaran jumlah pasien dengan jenis kelamin laki-laki pada dataset mencapai 79% dan presentase pasien perempuan pada dataset mencapai 21%.
+**Gambar 1. Persebaran fitur _sex_ pada dataset**
 
-* Persebaran Fitur _Chest Pain Type_ 
+Gambar 1 merupakan diagram persebaran fitur sex dari dataset. Dari diagram tersebut dapat diketahui bahwa persebaran jumlah pasien dengan jenis kelamin laki-laki pada dataset mencapai 79% dan presentase pasien perempuan pada dataset mencapai 21%.
 
 ![univariate_chestpaintype](https://user-images.githubusercontent.com/67575741/194702345-a4008ac3-1a66-4a8b-bf15-3f79b61dd113.png)
+
+**Gambar 2. Persebaran Fitur _Chest Pain Type_**
 
 Dari data diatas, dapat diketahui bahwasanya persebaran tipe nyeri dada ASY menempati posisi terbesar dengan presentasi 54%. Kemudian, disusul dengan NAP sebesar 22,1%, tipe ATA sebesar 18.8% dan yang terakhir TA dengan presentase 5%.
 
@@ -117,7 +118,9 @@ Berikut ini adalah tahapan pra-premosesan data yang dilakukan pada proyek ini:
     Sebelum melangkan pada proses pemodelan, terlebih dahulu kita harus membedakan data training dan data testing. Hal ini dilakukan untuk mempertahankan sebagian data yang ada untuk menguji seberapa baik model yang kita buat terhadap data baru. Pada proses ini data testing berperan sebagai data baru, sehingga proses lainnya pada data latih tidak perlu dilakukan pada data testing.Pada proyek ini, penulis memanfaatkan fungsi train test split dari library sklearn untuk melakukan pembagian data trainng dan data testing. Dimana ukuran dari data testing sebesar 20% dari ukuran dataset. Sehingga dari 918 dari jumlah total sample dataset, sebesar 734 data berperan sebagai data training, dan 184 data berperan sebagai data testing.
 
 - **Standardisasi data pada semua fitur numerik pada dataset**
-  Model machine learning akan memiliki performa yang baik apabila dimodelkan dengan data dengan skala yang relatif sama atau memiliki distribusi data yang normal. Untuk itu, diperlukan proses scaling dan standarisasi agar data dapat berubah menjadi bentuk yang lebih mudah diolah oleh algoritma. Pada proyek ini, penulis menggunakan StandardScaler untuk melakukan proses standarisasi. Proses stanrisasi hanya dilakukan pada fitur numerik. Untuk proses standarisasi sendiri melakukan proses standarisasi dengan mengurangi nilai asal dengan nilai rata-rata suatu fitur, lalu membanginya dengan standar deviasi untuk menggeser distribusi. Gambar dibawah merupakan rumus dari standard scaler.![Standard Scaler Image](https://th.bing.com/th/id/OIP.aZ4K__oNEvn7VQWi7sb9iAHaB0?pid=ImgDet&rs=1)
+  Model machine learning akan memiliki performa yang baik apabila dimodelkan dengan data dengan skala yang relatif sama atau memiliki distribusi data yang normal. Untuk itu, diperlukan proses scaling dan standarisasi agar data dapat berubah menjadi bentuk yang lebih mudah diolah oleh algoritma. Pada proyek ini, penulis menggunakan StandardScaler untuk melakukan proses standarisasi. Proses stanrisasi hanya dilakukan pada fitur numerik. Untuk proses standarisasi sendiri melakukan proses standarisasi dengan mengurangi nilai asal dengan nilai rata-rata suatu fitur, lalu membanginya dengan standar deviasi untuk menggeser distribusi. Rumus dibawah ini merupakan rumus dari standart scaler.
+  
+  $$ X scaled = { x - mean \over std } $$
 
 ## Modeling
 Pada proyek ini, model yang dibuat merupakan kasus binary classification. Untuk mendapatkan model dengan performa terbaik, penulis melakukan percobaan pada beberpada model klasifikasi. Model klasifikasi tersebut diantaranya :
