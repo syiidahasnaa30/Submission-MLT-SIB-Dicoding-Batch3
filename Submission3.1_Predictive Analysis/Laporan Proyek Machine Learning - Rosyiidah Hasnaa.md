@@ -67,25 +67,23 @@ Gambar 1 merupakan diagram persebaran fitur sex dari dataset. Dari diagram terse
 
 Dari data diatas, dapat diketahui bahwasanya persebaran tipe nyeri dada ASY menempati posisi terbesar dengan presentasi 54%. Kemudian, disusul dengan NAP sebesar 22,1%, tipe ATA sebesar 18.8% dan yang terakhir TA dengan presentase 5%.
 
-* Persebaran Fitur _Resting ECG_
-
 ![ecg univariate](https://user-images.githubusercontent.com/67575741/194702525-d1b84ee2-5435-4d4a-b97f-21b20bb21832.png)
 
-Dari data diatas, dapat diketahui bahwa persebaran hasil elektrodiagram pasien ketika beristirahat(resting ecg) normal sebesar 60,1%, sedangkan pasien yang mengalami kelaian gelombang ST sebesar 19,4% dan yang meiliki kemungkinan mengalami hipertrofi ventrikel kiri(LVH) sebesar 20,5%.
+**Gambar 3. Persebaran Fitur _Resting ECG_**
 
-* Persebaran Fitur _ST Slope_
+Pada diagram yang ditunjukkan oleh gambar 3 dapat diketahui bahwa persebaran hasil elektrodiagram pasien ketika beristirahat(resting ecg) normal sebesar 60,1%, sedangkan pasien yang mengalami kelaian gelombang ST sebesar 19,4% dan yang meiliki kemungkinan mengalami hipertrofi ventrikel kiri(LVH) sebesar 20,5%.
 
 ![ST Slope univariate](https://user-images.githubusercontent.com/67575741/194702542-b6abcd8b-6fef-416c-ae7d-ae4db2b04d6e.png)
 
-Dari data diatas, dapat diketahui bahwa persebaran ST Slope flat sebesar 50,1%, Up sebesar 43%, dan down sebesar 6,9%.
+**Gambar 4. Persebaran Fitur _ST Slope_**
 
-* Persebaran Fitur Numerik
-
-Fitur numerikal meliputi Age,RestingBP,Cholesterol,FastingBS,MaxHR,Oldpeak dan targetnya yang berupa nilai numerik yaitu HeartDisease
+Pada diagram yang ditunjukkan oleh gambar 4, dapat diketahui bahwa persebaran ST Slope flat sebesar 50,1%, Up sebesar 43%, dan down sebesar 6,9%.
 
 ![numerik univariate](https://user-images.githubusercontent.com/67575741/194702598-810669b0-65de-4f69-b6ee-f7d2864652f4.png)
- 
-Dari data tersebut dapat diketahui bahwasanya dalam dataset pasien memiliki rentang usia antara 28-77 tahun, dan didominasi oleh rentang usia 50-60 tahun. Sedangkan untuk resting bp pasien rata-rata didominasi pada rentang 100-175. Sedangkan tingkat kolesterol pasien pada dataset didominasi pada rentang 100-400 an. Sedangkan yang memiliki tingkat kolesterol sebesar nol mencapai 170-an pasien. Pada data detak jantung, maksimal detak jantung pasien berada pada rentang 100-200. Sedangkan untuk oldpeak berada pada rentang 0-4. Sedangkan untuk fasting bs yang memiliki nilai lebih dari 120 mmHg mencapai 200 pasien, selebihnya fasting bs tidak mencapai 10 mmHg. Pada grafik terakhir, dapat diketahui persebaran pasien yang memiliki penyakit gagal jantung mencapai 500 pasien, sedangkan yang tidak mengidap penyakit gagal jantung mencapai 400 pasien.
+
+**Gambar 5. Persebaran Fitur Numerik Pada Dataset**
+
+Fitur numerik merupakan fitur yang bertipe numerik, fitur-fitur tersebut pada dataset meliputi fitur Age,RestingBP,Cholesterol,FastingBS,MaxHR,Oldpeak dan targetnya yang berupa nilai numerik yaitu HeartDisease. Pada diagram yang ditunjukkan oleh gambar 5 dapat diketahui bahwasanya dalam dataset pasien memiliki rentang usia antara 28-77 tahun, dan didominasi oleh rentang usia 50-60 tahun. Sedangkan untuk resting bp pasien rata-rata didominasi pada rentang 100-175. Sedangkan tingkat kolesterol pasien pada dataset didominasi pada rentang 100-400 an. Sedangkan yang memiliki tingkat kolesterol sebesar nol mencapai 170-an pasien. Pada data detak jantung, maksimal detak jantung pasien berada pada rentang 100-200. Sedangkan untuk oldpeak berada pada rentang 0-4. Sedangkan untuk fasting bs yang memiliki nilai lebih dari 120 mmHg mencapai 200 pasien, selebihnya fasting bs tidak mencapai 10 mmHg. Pada grafik terakhir, dapat diketahui persebaran pasien yang memiliki penyakit gagal jantung mencapai 500 pasien, sedangkan yang tidak mengidap penyakit gagal jantung mencapai 400 pasien.
 
 **2. _Mutivariate Analysis_**
 
@@ -97,17 +95,23 @@ Multivariate Analysis menunjukkan hubungan antara dua atau lebih variabel pada d
 ![exercise angine multi](https://user-images.githubusercontent.com/67575741/194702639-9947d249-1f0d-4ff7-b0c4-5b123a5c3522.png)
 ![st slope mlti](https://user-images.githubusercontent.com/67575741/194702655-dc7c194b-279d-434a-8fce-05bf85b7fac5.png)
 
-Dari ilustrasi diatas, dapat diketahu bahwasanya sebagian besar penderita gagal jantung adalah pasien laki-laki.Apabila berdasarkan jenis nyeri jantung yang dialami kebanyakn pengidap gagal jantung memiliki jenis nyeri dada ASY. Sedangkan untuk keterkaitan antara RestingECG dengan penyakit gagal jantung cenderung tidak adanya keterkaitan, karena persebarannya hampir rata. Untuk exercise angina cenderung berpengaruh pada penyakit gagal jantung. Sedangkan untuk ST Slope penderita gagal jantung didominasi oleh pasien yang memiliki ST Slope normal.
+**Gambar 6. Keterkaitan Setiap Fitur Kategorikal dengan HearDisease**
+
+Dari ilustrasi yang ditunjukkan oleh gambar 6, dapat diketahu bahwasanya sebagian besar penderita gagal jantung adalah pasien laki-laki.Apabila berdasarkan jenis nyeri jantung yang dialami kebanyakn pengidap gagal jantung memiliki jenis nyeri dada ASY. Sedangkan untuk keterkaitan antara RestingECG dengan penyakit gagal jantung cenderung tidak adanya keterkaitan, karena persebarannya hampir rata. Untuk exercise angina cenderung berpengaruh pada penyakit gagal jantung. Sedangkan untuk ST Slope penderita gagal jantung didominasi oleh pasien yang memiliki ST Slope normal.
 
 Untuk persebaran pasien yang mengidap gagal jantung berdasarkan fitur numerik seperti yang tampak pada gambar dibawah
 
 ![numerik multi](https://user-images.githubusercontent.com/67575741/194702665-f3b3845e-c6aa-4726-b7a2-ab3372ed5766.png)
 
-Selain itu, itu melihat korelasi antar fitur pada proyek ini penulis juga memanfaatkan matriks kolerasi yangg didapatkan melalui fungsi corr yang tersedia pada library pandas. Pada matriks korelasi, warna gelap menandakan korelasi negatif, sedangkan warna terang menandakan korelasi positif. 
+**Gambar 7. Keterkaitan setiap fitur numerik dengan HeartDisease**
+
+Selain itu, untuk melihat korelasi antar fitur pada proyek ini penulis juga memanfaatkan matriks kolerasi yangg didapatkan melalui fungsi corr yang tersedia pada library pandas. Pada matriks korelasi, warna gelap menandakan korelasi negatif, sedangkan warna terang menandakan korelasi positif. 
 
 ![newplot](https://user-images.githubusercontent.com/67575741/194702678-ffe7daa9-7b67-40bc-8a07-c6486cd94766.png)
 
-Hasil diatas menunjukkan bahwa heart disease memiliki korelasi negatif dengan Cholesterol dan MaxHR. Dan Heart disease memiliki korelasi positif dengan fitur Oldpeak,FastingBS dan Age. 
+**Gambar 8. Matriks korelasi antar fitur numerik**
+
+Pada gambar 8, matriks korelasi menunjukkan bahwa heart disease memiliki korelasi negatif dengan Cholesterol dan MaxHR. Dan Heart disease memiliki korelasi positif dengan fitur Oldpeak,FastingBS dan Age. 
 
 ## Data Preparation
 Berikut ini adalah tahapan pra-premosesan data yang dilakukan pada proyek ini:
