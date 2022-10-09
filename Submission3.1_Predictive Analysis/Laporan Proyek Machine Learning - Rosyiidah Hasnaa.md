@@ -179,9 +179,16 @@ XGboost adalah algoritma yang merupakan implementasi lanjutan dari algoritma pen
 
 Pada semua algoritma yang dilakukan, data training dimasukkan pada model secara langsung setelah melewati tahap pre-processing. Namun, pada algoritma decision tree terdapat parameter tambahan berupa criterion yang diisi dengan entropy. Sedangka pada random forest terdapat parameter n_estimator sebesar 200 dan criterion juga entropi. Dari kelima algoritma tersebut, didapatkan hasil metric akurasi sebagai berikut :
 
-![Screenshot 2022-10-08 165153](https://user-images.githubusercontent.com/67575741/194702701-33eb42fa-4a9d-44eb-838a-97f0214143ca.png)
+**Tabel 1. Tabel Metrik Evaluasi Model**
+| Nama Algoritma | Accuracy | Precision | Recall | F1-Score
+| ------ | ------ |------ |------ |------ |
+| Logistic Regression| 0.53	| 0.94 | 0.17 | 0.28 |
+| Naive Bayes | 0.56	| 0.56 | 1.0 | 0.72 |
+| Decision Tree | 0.82	| 0.86 | 0.81 | 0.83 |
+| Random Forest | 0.86	| 0.84 | 0.92 | 0.88 |
+| XgBoost | 0.82	| 0.85 | 0.82 | 0.83 |
 
-Dari hasil akurasi diatas, didapatkan bahwasanya nilai akurasi tertinggi diraih oleh algoritma random forest sebesar 85% dan disusul oleh algoritma XGBoost dengan akurasi sebesar 81%. Dari pelatihan model tersebut didapatkan bahwasanya algoritma tersebut mampu digunakan untuk melakukan prediski penyakit gagal jantung pada pasien.
+Berdasarkan hasil yang tertera pada tabel 1, didapatkan bahwasanya nilai akurasi tertinggi diraih oleh algoritma random forest sebesar 0.86 atau setara dengan 86% dan disusul oleh algoritma XGBoost dengan akurasi sebesar 0,82 setara dengan 82%. Dari pelatihan model tersebut didapatkan bahwasanya algoritma RandomForest dan XgBoost mampu digunakan untuk melakukan klasifikasi penyakit gagal jantung dan memiliki akurasi melebihi 80%.
 
 ## Evaluation
 Pada proyek ini, metrik yang digunakan sebagai dasar evaluasi model adalah beberpa metrik berikut :
@@ -189,7 +196,7 @@ Pada proyek ini, metrik yang digunakan sebagai dasar evaluasi model adalah beber
 
 Accuracy merupakan sebuah metrik yang menunjukkan seberapa sering model yang telah kita bangun menunjukkan hasil prediksi yang sesuai dengan target. Untuk menghitung nilai accuracy dapat menggunakan rumus berikut :
 
-![image](https://user-images.githubusercontent.com/67575741/194710351-e2a7d590-15bb-4bea-beda-ab1687dd777f.png)
+$$ Accuracy = { TP + TN \over TP + TN + FP + FN} $$
 
 **TN :** Terjadi ketika model memprediksi hasil negatif, dan pada kenyatannya target class label juga negatif
 
@@ -203,19 +210,19 @@ Accuracy merupakan sebuah metrik yang menunjukkan seberapa sering model yang tel
 
 Precision merupakan pembagian dari jumlah total contoh positif yang diklasifikasikan bernilai benar dengan jumlah total contoh positif yang diprediksi. Rumusan dari precision adalah sebagai berikut:
 
-![image](https://miro.medium.com/max/1400/1*X9DckJuXGhidX9g4EZK0HA.png)
+$$ Precision = { TP \over TP + FP } $$
 
 - **Recall**
 
 Recall merupakan rasio dari jumlah total contoh positif yang diklasifikasikan bernilai benar dibagi dengan jumlah total contoh positif. Rumusan dari recall adalah sebagai berikut:
 
-![image](https://miro.medium.com/max/1400/1*flEXprkoE-I39lKVX4iPqw.png)
+$$ Recall = { TP \over TP + FN } $$
 
 - **F1-Score**
 
 F1-Score didapatkan dari hasil perkalian antara precision dan recall yang kemudian dibagi dengan penjumlahan antara precision dengan recall lalu dikalikan dua. F-1 Score cocok digunakan pada dataset yang persebaran antara label positif dan negatif tidak merata.Rumusan dari f-1 score adalah sebagai berikut:
 
-![image](https://user-images.githubusercontent.com/67575741/194710986-012c121c-f4da-4a07-b7fd-2e8e600472c6.png)
+$$ F-1 Score = { 2 * (Recall * Precision) \over (Recall + Precision) } $$
 
 Pada proyek ini untuk menghitung nilai akurasi, precsion, recall dan f-1 score dilakukan dengan menggunakan modul accuracy_score, precision_score, recall_score dan f1_score dari library Scikitlearn.
 
