@@ -198,32 +198,74 @@ Pada semua algoritma yang dilakukan, data training dimasukkan pada model secara 
 Berdasarkan hasil yang tertera pada tabel 1, didapatkan bahwasanya nilai akurasi tertinggi diraih oleh algoritma random forest sebesar 0.86 atau setara dengan 86% dan disusul oleh algoritma XGBoost dengan akurasi sebesar 0,82 setara dengan 82%. Dari pelatihan model tersebut didapatkan bahwasanya algoritma RandomForest dan XgBoost mampu digunakan untuk melakukan klasifikasi penyakit gagal jantung dan memiliki akurasi melebihi 80%.
 
 ## Evaluation
-Pada proyek ini, metrik yang digunakan sebagai dasar evaluasi model adalah beberpa metrik berikut :
+Proyek ini mengangkat tema mengenai klasifikasi, sehingga pada proyek ini metrik evaluasi yang digunakan merupakan metrik evaluasi yang umumnya digunakan pada masalah klasifikasi pada machine learning. Metrik evaluasi tersebut meliputi accuracy, precision, recall, dan f-1 score. Keempat metric tersebut telah tersedia pada library scikitlearn dengan memanggil sklearn.metrics import accuracy_score, precision_score, recall_score dan f1_score. Untuk memanfaatkan keempat metrik tersebut dibutuhkan parameter berupa label dari data validasi dan label dari hasil prediksi data validasi. Penjelasan dari masing -masing metrik tersebut sebagai berikut :
+
 - **Accuracy**
 
-Accuracy merupakan sebuah metrik yang menunjukkan seberapa sering model yang telah kita bangun menunjukkan hasil prediksi yang sesuai dengan target. Untuk menghitung nilai accuracy dapat menggunakan rumus berikut :
+Accuracy merupakan sebuah metrik yang menunjukkan presentase seberapa sering model yang telah kita bangun menunjukkan hasil prediksi yang sesuai dengan target dari keseluruhan data. Baik itu prediksi positif maupun prediksi negatif, namun keduanya mampu diprediksi dengan benar. Apabila dihitung menggunakan rumus matematika, rumusan dari accuracy adalah sebagai berikut :
 
 $$ Accuracy = { TP + TN \over TP + TN + FP + FN} $$
 
-**TN :** Terjadi ketika model memprediksi hasil negatif, dan pada kenyatannya target class label juga negatif
+**TN :** Terjadi ketika model memprediksi hasil negatif, dan pada kenyatannya target class label juga negatif. Pada proyek ini, TN terjadi apabila model memprediksi seorang pasien tidak mengidap gagal ginjal dan pada kenyataannya pasien memang tidak mengidap gagal ginjal.
 
-**TP :** Terjadi ketika model memprediksi hasil positif, dan pada kenyatannya target class label juga positif
+**TP :** Terjadi ketika model memprediksi hasil positif, dan pada kenyatannya target class label juga positif. Pada proyek ini, TP terjadi apabila model memprediksi seorang pasien mengidap gagal ginjal dan pada kenyataannya pasien memang mengidap gagal ginjal.
 
-**FN :** Terjadi ketika model memprediksi hasil negatif, dan pada kenyatannya target class label bernilai positif
+**FN :** Terjadi ketika model memprediksi hasil negatif, dan pada kenyatannya target class label bernilai positif. Pada proyek ini, FN terjadi apabila model memprediksi seorang pasien tidak mengidap gagal ginjal dan pada kenyataannya pasien mengidap gagal ginjal.
 
-**FP :** Terjadi ketika model memprediksi hasil positif, dan pada kenyatannya target class label bernilai negatif
+**FP :** Terjadi ketika model memprediksi hasil positif, dan pada kenyatannya target class label bernilai negatif. Pada proyek ini, FP terjadi apabila model memprediksi seorang pasien mengidap gagal ginjal dan pada kenyataannya pasien tidak mengidap gagal ginjal.
+
+Berdasarkan rumusan tersebut, masing -masing algoritma yang telah dibangun pada proyek ini memiliki nilai accuracy sebagai berikut :
+
+**Tabel 2. Hasil Evaluasi Model Menggunakan Metrik Accuracy**
+| Nama Algoritma | Accuracy | 
+| ------ | ------ |
+| Logistic Regression| 0.53	|
+| Naive Bayes | 0.56	|
+| Decision Tree | 0.82	|
+| Random Forest | 0.86	|
+| XgBoost | 0.82	|
+
+Dari data yang ditunjukkan  oleh tabel 2, dapat kita simpulkan bahwasanya nilai accuracy tertinggi diraih oleh algoritma random forest yang kemudian disusul oleh decision tree dan xgboost. Ketiga algoritma tersebut telah memenuhi tujuan dari proyek ini yaitu mampu memprediksi dengan accuracy melebihi 0,8.
 
 - **Precision**
 
-Precision merupakan pembagian dari jumlah total contoh positif yang diklasifikasikan bernilai benar dengan jumlah total contoh positif yang diprediksi. Rumusan dari precision adalah sebagai berikut:
+Precision dapat didefinisikan sebagai presentase dari hasil prediksi positif yang diprediksi dengan benar dari keseluruhan jumlah prediksi positif baik yang diprediksi dengan benar ataupun salah. Apabila dirumuskan dalam bentuk matematika rumusan dari precision adalah sebagai berikut:
 
 $$ Precision = { TP \over TP + FP } $$
 
+Berdasarkan rumusan tersebut, masing -masing algoritma yang telah dibangun pada proyek ini memiliki nilai precision sebagai berikut :
+
+**Tabel 3. Tabel Evaluasi Model Menggunakan Metrik Precision**
+
+| Nama Algoritma | Precision | 
+| ------ | ------ |
+| Logistic Regression| 0.94 |
+| Naive Bayes | 0.56 |
+| Decision Tree | 0.86 | 
+| Random Forest | 0.84 |
+| XgBoost |0.85 | 0.82 |
+
+Dari data yang ditunjukkan  oleh tabel 3, dapat kita simpulkan bahwasanya nilai precision tertinggi diraih oleh algoritma logistic regression yang kemudian disusul oleh decision tree. Umumnya dari algoritma logistic regression, decision tree, random forest, juga xgboost memiliki precision diatas 0,8. Hanyasatu algoritma saja yaitu naive bayes yang memiliki precision dibawah 0,8.
+
 - **Recall**
 
-Recall merupakan rasio dari jumlah total contoh positif yang diklasifikasikan bernilai benar dibagi dengan jumlah total contoh positif. Rumusan dari recall adalah sebagai berikut:
+Recall dapat didefinisikan sebagai presentase positif yang diprediksi dengan benar dari semua hasil positif yang sebenarnya.Recall disebut juga denga sensitivitas. Rumusan dari recall adalah sebagai berikut:
 
 $$ Recall = { TP \over TP + FN } $$
+
+Berdasarkan rumusan tersebut, masing -masing algoritma yang telah dibangun pada proyek ini memiliki nilai recall sebagai berikut :
+
+**Tabel 4. Tabel Evaluasi Model Menggunakan Metrik Recall**
+
+| Nama Algoritma |  Recall |
+| ------ | ------|
+| Logistic Regression| 0.17 |
+| Naive Bayes | 1.0 |
+| Decision Tree | 0.81 |
+| Random Forest | 0.92 |
+| XgBoost | 0.82 |
+
+Dari data yang ditunjukkan  oleh tabel 4, dapat kita simpulkan bahwasanya nilai recall tertinggi diraih oleh algoritma naive bayes. Dan nilai recall terendah dimiliki oleh logistic regression.
 
 - **F1-Score**
 
@@ -231,7 +273,18 @@ F1-Score didapatkan dari hasil perkalian antara precision dan recall yang kemudi
 
 $$ F-1 Score = { 2 * (Recall * Precision) \over (Recall + Precision) } $$
 
-Pada proyek ini untuk menghitung nilai akurasi, precsion, recall dan f-1 score dilakukan dengan menggunakan modul accuracy_score, precision_score, recall_score dan f1_score dari library Scikitlearn.
+Berdasarkan rumusan tersebut, masing -masing algoritma yang telah dibangun pada proyek ini memiliki nilai f-1 score sebagai berikut :
+
+**Tabel 5. Tabel Evaluasi Model Menggunakan Metrik F-1 Score**
+| Nama Algoritma |F1-Score
+| ------ | ------ |
+| Logistic Regression|  0.28 |
+| Naive Bayes | 0.72 |
+| Decision Tree | 0.83 |
+| Random Forest | 0.88 |
+| XgBoost | 0.83 |
+
+Dari data yang ditunjukkan  oleh tabel 5, dapat kita simpulkan bahwasanya nilai f-1 score tertinggi diraih oleh algoritma random forest dan disusul oleh decision tree dan xgboost. Sedangkan untuk nilai f-1 score terendah ada pada algoritma logistic regression.
 
 ## Referensi
 [[1](https://ejournal.unesa.ac.id/index.php/mathunesa/article/view/45652)] Adi, S., & Wintarti, A. (2022). KOMPARASI METODE SUPPORT VECTOR MACHINE (SVM), K-NEAREST NEIGHBORS (KNN), DAN RANDOM FOREST (RF) UNTUK PREDIKSI PENYAKIT GAGAL JANTUNG. MATHunesa: Jurnal Ilmiah Matematika, 10(2), 258-268.
