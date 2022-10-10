@@ -137,6 +137,16 @@ Logistic regression merupakan salah satu algoritma regresi yang dapat dimanfaatk
     - Ordinal Logistic Regression
     Jenis logistic regression yang memiliki dua output atau lebih dengan memperhatikan urutan.
 
+Proses pembangunan model dari logistic regression memanfaatkan logistic function. Logistic function adalah suatu fungsi yang dibentuk dengan menyamakan nilai Y pada linear function dengan nilai Y pada sigmoid function. Tujuan dari logistic function untuk merepresentasikan data yang dimiliki kedalam bentuk sigmoid function. Langkah -langkah dalam membentuk logisctic function adalah sebagai berikut :
+    - Melakukan opersai Invers pada Sigmoid Function, sehingga fungsi sigmoid berubah bentuk menjadi Y = ln(p/(1-p).
+    - Setarakan dengan fungsi Linear Y = b0+b1*X sehingga kita dapatkan persamaan ln(p/(1-p) = b0+b1*X.
+    - Ubah persamaan ln(p/(1-p) = b0+b1*X kedalam bentuk logaritmik sehingga didapatkan persamaan P = 1/(1+e^-(b0+b1*X))
+ 
+ Pada proyek ini untuk melakukan pemodelan cuku memanggil LogisticRegression dari library sklearn. Kemudian, parameter yang dimasukkan kedalam model adalah data training dan juga label dari data training. Hasil evaluasi dari pemodelan logistic regression pada proyek ini adalah sebagai berikut :
+| Nama Algoritma | Accuracy | Precision | Recall | F1-Score
+| ------ | ------ |------ |------ |------ |
+| Logistic Regression| 0.53	| 0.94 | 0.17 | 0.28 |
+
 - **Naive Bayes Classifier**
 Naive bayes classifier merupakan salah satu metode klasifikasi yang berdasarkan pada teorema bayes. Teorema bayes merupakan sebuah teori untuk memprediksi peluang dimasa mendatang berdasarkan pengalaman di masa sebelumnya.[[4](https://binus.ac.id/bandung/2019/12/algoritma-naive-bayes/)] Kelebihan dan kekurangan dari metode ini adalah sebagai berikut :
     - Kelebihan :
@@ -287,11 +297,11 @@ Berdasarkan rumusan tersebut, masing -masing algoritma yang telah dibangun pada 
 Dari data yang ditunjukkan  oleh tabel 5, dapat kita simpulkan bahwasanya nilai f-1 score tertinggi diraih oleh algoritma random forest dan disusul oleh decision tree dan xgboost. Sedangkan untuk nilai f-1 score terendah ada pada algoritma logistic regression.
 
 ## Referensi
-[[1](https://ejournal.unesa.ac.id/index.php/mathunesa/article/view/45652)] Adi, S., & Wintarti, A. (2022). KOMPARASI METODE SUPPORT VECTOR MACHINE (SVM), K-NEAREST NEIGHBORS (KNN), DAN RANDOM FOREST (RF) UNTUK PREDIKSI PENYAKIT GAGAL JANTUNG. MATHunesa: Jurnal Ilmiah Matematika, 10(2), 258-268.
+[1] Adi, S., & Wintarti, A. (2022). KOMPARASI METODE SUPPORT VECTOR MACHINE (SVM), K-NEAREST NEIGHBORS (KNN), DAN RANDOM FOREST (RF) UNTUK PREDIKSI PENYAKIT GAGAL JANTUNG. MATHunesa: Jurnal Ilmiah Matematika, 10(2), 258-268.
 
-[[2](https://www.kaggle.com/fedesoriano/heart-failure-prediction)] fedesoriano. (September 2021). Heart Failure Prediction Dataset.
+[2] fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved September 27, 2022,from https://www.kaggle.com/fedesoriano/heart-failure-prediction.
 
-[[3](https://vincentmichael089.medium.com/machine-learning-2-logistic-regression-96b3d4e7b603)] Machine Learning: Mengenal Logistic Regression
+[3] Michael, V. (2019, May 9). Machine Learning: Mengenal Logistic Regression. Retrieved October 8, 2022, from Medium: https://vincentmichael089.medium.com/machine-learning-2-logistic-regression-96b3d4e7b603
 
 [[4](https://binus.ac.id/bandung/2019/12/algoritma-naive-bayes/)] Algoritma Naive Bayes
 
