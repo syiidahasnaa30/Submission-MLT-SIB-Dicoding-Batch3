@@ -141,14 +141,37 @@ Proses pembangunan model dari logistic regression memanfaatkan logistic function
     - Melakukan opersai Invers pada Sigmoid Function, sehingga fungsi sigmoid berubah bentuk menjadi Y = ln(p/(1-p).
     - Setarakan dengan fungsi Linear Y = b0+b1*X sehingga kita dapatkan persamaan ln(p/(1-p) = b0+b1*X.
     - Ubah persamaan ln(p/(1-p) = b0+b1*X kedalam bentuk logaritmik sehingga didapatkan persamaan P = 1/(1+e^-(b0+b1*X))
- 
- Pada proyek ini untuk melakukan pemodelan cuku memanggil LogisticRegression dari library sklearn. Kemudian, parameter yang dimasukkan kedalam model adalah data training dan juga label dari data training. Hasil evaluasi dari pemodelan logistic regression pada proyek ini adalah sebagai berikut :
+
+Pada proyek ini untuk melakukan pemodelan cukup memanggil LogisticRegression dari library sklearn. Kemudian, parameter yang dimasukkan kedalam model adalah data     training yang telah dilakukan prepocessing dan juga label dari data training. Berikut adalah potongan kode dari logistic regression
+
+    #Logistic Regression
+    from sklearn.linear_model import LogisticRegression
+
+    logisticRegression=LogisticRegression()
+    logisticRegression.fit(X_train,y_train)
+
+Hasil evaluasi dari pemodelan logistic regression pada proyek ini adalah sebagai berikut :
+
 | Nama Algoritma | Accuracy | Precision | Recall | F1-Score
 | ------ | ------ |------ |------ |------ |
 | Logistic Regression| 0.53	| 0.94 | 0.17 | 0.28 |
 
 - **Naive Bayes Classifier**
-Naive bayes classifier merupakan salah satu metode klasifikasi yang berdasarkan pada teorema bayes. Teorema bayes merupakan sebuah teori untuk memprediksi peluang dimasa mendatang berdasarkan pengalaman di masa sebelumnya.[[4](https://binus.ac.id/bandung/2019/12/algoritma-naive-bayes/)] Kelebihan dan kekurangan dari metode ini adalah sebagai berikut :
+Naive Bayes adalah metode klasifikasi data berdasarkan probabilitas yang terjadi di masa depan. Naive Bayes menerapkan teknik supervised klasifikasi objek dimasa depan dengan menetapkan label kelas menggunakan probabilitas bersyarat. Probabilitas bersyarat adalah ukuran peluan suatu peristiw yang terjadi berdasarkan peristiwa lain yang telah terjadi. Model machine learning ini menerapkan teorema bayes. Rumus teorema bayes sebagai berikut :
+
+$$ P(A|B) = { P(B|A) P(A) P(B) } $$
+
+**Keterangan :**
+
+**P(A│B)** : Probabilitas A terjadi dengan bukti bahwa B telah terjadi(probabilitas superior)
+
+**P(B│A)**: Probabilitas B terjadi dengan bukti bahwa A telah terjadi
+
+**P(A)** : Peluang terjadinya A
+
+**P(B)** : Peluang terjadinya B
+
+Kelebihan dan kekurangan dari metode ini adalah sebagai berikut[[4](https://binus.ac.id/bandung/2019/12/algoritma-naive-bayes/)] :
     - Kelebihan :
         - Bisa dipakai untuk data kuantitatif maupun kualitatif
         - Tidak memerlukan jumlah data yang banyak
@@ -162,8 +185,22 @@ Naive bayes classifier merupakan salah satu metode klasifikasi yang berdasarkan 
         - Keakuratannya tidak bisa diukur menggunakan satu probabilitas saja. Butuh bukti-bukti lain untuk membuktikannya.
         - Untuk membuat keputusan, diperlukan pengetahuan awal atau pengetahuan mengenai masa sebelumnya. Keberhasilannya sangat bergantung pada pengetahuan awal tersebut Banyak celah yang bisa mengurangi efektivitasnya
         - Dirancang untuk mendeteksi kata-kata saja, tidak bisa berupa gambar
+ 
+ Data training yang telah dilakukan proses encoding dan juga scaling pada tahap preprocessing, selanjutnya siap dimasukkan pada pemodelan. berikut potongan kodenya :
+    
+    #naive bayes
+    from sklearn.naive_bayes import GaussianNB
+
+    naiveBayes=GaussianNB()
+    naiveBayes.fit(X_train,y_train)
+ 
+ Berdasarkan dari pemodelan naive bayes tersebut, hasil dari pemodelan naive bayes pada kasus klasifikasi gagal janting memiliki hasil sebagi berikut :
+| Nama Algoritma | Accuracy | Precision | Recall | F1-Score
+| ------ | ------ |------ |------ |------ |
+| Naive Bayes | 0.56	| 0.56 | 1.0 | 0.72 |
+ 
 - **Decision Tree**
-Decision tree merupakan salah satu algoritma supervised learning untuk memecahkan masalah klasifikasi. Decision tree melakukan prediksi suatu kelas berdasarkan aturan-aturan yang dibentuk setelah mempelajari data yang ada. Konsep dari proses decision tree adalah mengkonversi sebuah data menjadi sebuah pohon keputusan dan ketetapan.[[5](https://medium.com/@raihanaglest/pemahaman-decision-tree-3cb3ab1a27c9)]
+Decision tree merupakan salah satu algoritma supervised learning untuk memecahkan masalah klasifikasi. Decision tree melakukan prediksi suatu kelas berdasarkan aturan-aturan yang dibentuk setelah mempelajari data yang ada. Konsep dari proses decision tree adalah mengkonversi sebuah data menjadi sebuah pohon keputusan dan aturan aturan keputusan. 1 cabang menandakan satu keputusan.[[5](https://medium.com/@raihanaglest/pemahaman-decision-tree-3cb3ab1a27c9)]
     - Kelebihan dari algoritma decision tree adalah sebagai berikut :
         - Dapat mencegah timbulnya sebuah masalah dalam analisis multivariant tanpa mengurangi kualitas keputusan yang dihasilkan.
         - Perubahaan pada distrik pengambilan keputusan yang bersifat kompleks dan global menjadi lebih mudah dan jelas.
@@ -174,8 +211,21 @@ Decision tree merupakan salah satu algoritma supervised learning untuk memecahka
         - Kesulitan dalam memodelkan pohon keputusan.
         -  Besarnya pengumpulan jumlah error dari setiap level.
 
+Potongan kode pemodelan decision tree
+
+    #DTC
+    from sklearn.tree import DecisionTreeClassifier
+
+    dtc=DecisionTreeClassifier(criterion="entropy")
+    dtc.fit(X_train,y_train)
+
+Pada potongan kode diatas, untuk melatih model cukup memanggil DcisionTreeClassifier yang telah disediakan oleh sklearn dan memasukkan parameter kriteria berupa entropi.Berdasarkan dari pembangunan model decision tree yang telah dilakukan dengan parameter criterion, maka didapatkan hasil sebagai berikut:
+| Nama Algoritma | Accuracy | Precision | Recall | F1-Score
+| ------ | ------ |------ |------ |------ |
+| Decision Tree | 0.82	| 0.86 | 0.81 | 0.83 |
+
 - **Random Forest**
-Random Forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar.Proses klasifikasi pada random forest berawal dari memecah data sampel yang ada kedalam decision tree secara acak. Setelah pohon terbentuk,maka akan dilakukan voting pada setiap kelas dari data sampel. Kemudian, mengkombinasikan vote dari setiap kelas kemudian diambil vote yang paling banyak.Dengan menggunakan random forest pada klasifikasi data maka, akan menghasilkan vote yang paling baik [[6](https://id.wikipedia.org/wiki/Random_forest)]. 
+Random Forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar.Proses klasifikasi pada random forest berawal dari memecah data sampel yang ada kedalam decision tree secara acak. Setelah pohon terbentuk,maka akan dilakukan voting pada setiap kelas dari data sampel. Kemudian, mengkombinasikan vote dari setiap kelas kemudian diambil vote yang paling banyak.Dengan menggunakan random forest pada klasifikasi data maka, akan menghasilkan vote yang paling baik [[6]( Ho, Tin Kam (1995). Random Decision Forests (PDF). Proceedings of the 3rd International Conference on Document Analysis and Recognition, Montreal, QC, 14–16 August 1995. hlm. 278–282)]. 
     - Kelebihan algoritma Random Forest adalah sebagai berikut :
         -   Algoritma Random Forest merupakan algoritma dengan pembelajaran paling akurat yang tersedia. Untuk banyak kumpulan data, algoritma ini menghasilkan pengklasifikasi yang sangat akurat
         -   Berjalan secara efisien pada data besar
@@ -185,16 +235,43 @@ Random Forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data d
     -   Kekurangan dari algoritma Random Forest adalah sebagai berikut :
         -   Algoritma Random Forest overfiting untuk beberapa kumpulan data dengan tugas klasifikasi/regresi yang bising/noise
         -   Untuk data yang menyertakan variabel kategorik dengan jumlah level yang berbeda, Random Forest menjadi bias dalam mendukung atribut dengan level yang lebih banyak. Oleh karena itu, skor kepentingan variabel dari Random Forest tidak dapat diandalkan untuk jenis data ini.
+ 
+Data training yang telah siap akan dimasukkan kedalam model untuk melakukan pelatihan pada model, berikut potongan kodenya 
+
+    #RandomForest
+    from sklearn.ensemble import RandomForestClassifier
+
+    rf=RandomForestClassifier(n_estimators=200,criterion="entropy")
+    rf.fit(X_train,y_train)
+
+Setelah dilakukan proses pemodelan, lalu dilakukan proses  evaluasi model menggunakan data testing, maka didapatkan hasil evaluasi sebagai berikut :
+| Nama Algoritma | Accuracy | Precision | Recall | F1-Score
+| ------ | ------ |------ |------ |------ |
+| Random Forest | 0.86	| 0.84 | 0.92 | 0.88 |
 
 - **XgBoost**
-XGboost adalah algoritma yang merupakan implementasi lanjutan dari algoritma peningkatan gradien (Gradient Boosting). XGboost menggunakan prinsip ensemble yaitu menggabungkan beberapa set pembelajar (tree) yang lemah menjadi sebuah model yang kuat sehinga menghasilkan prediksi yang kuat. [[7](https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d)]) :
+XGboost adalah algoritma yang merupakan implementasi lanjutan dari algoritma peningkatan gradien (Gradient Boosting). XGboost menggunakan prinsip ensemble yaitu menggabungkan beberapa set pembelajar (tree) yang lemah menjadi sebuah model yang kuat sehinga menghasilkan prediksi yang kuat. Algoritma yang menggunakan teknik boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan. [[7](https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d)]) :
     -   Kelebihan Algoritma XGboost sebagai berikut :
         -   Dapat melakukan pemrosesan paralel yang dapat mempercepat komputasi
         -   Memiliki fitur regularisasi untuk mencegah overfitting
         -   Menangani berbagai jenis pola sparsity dalam data dengan lebih efisien
         -   Dilengkapi dengan built in cross validation
+        
+Data training yang telah siap akan dimasukkan kedalam model untuk melakukan pelatihan pada model, berikut potongan kodenya 
 
-Pada semua algoritma yang dilakukan, data training dimasukkan pada model secara langsung setelah melewati tahap pre-processing. Namun, pada algoritma decision tree terdapat parameter tambahan berupa criterion yang diisi dengan entropy. Sedangka pada random forest terdapat parameter n_estimator sebesar 200 dan criterion juga entropi. Dari kelima algoritma tersebut, didapatkan hasil metric akurasi sebagai berikut :
+    #xbc
+    from xgboost import XGBClassifier
+
+    xbc=XGBClassifier()
+    xbc.fit(X_train,y_train)
+    
+Setelah dilakukan proses pemodelan, lalu dilakukan proses  evaluasi model menggunakan data testing, maka didapatkan hasil evaluasi sebagai berikut :
+| Nama Algoritma | Accuracy | Precision | Recall | F1-Score
+| ------ | ------ |------ |------ |------ |
+| XgBoost | 0.82	| 0.85 | 0.82 | 0.83 |
+
+
+Rangkuman dari hasil evaluasi tiap model seperti yang tampak pada tabel dibawah ini.
 
 **Tabel 1. Tabel Metrik Evaluasi Model**
 | Nama Algoritma | Accuracy | Precision | Recall | F1-Score
@@ -296,6 +373,9 @@ Berdasarkan rumusan tersebut, masing -masing algoritma yang telah dibangun pada 
 
 Dari data yang ditunjukkan  oleh tabel 5, dapat kita simpulkan bahwasanya nilai f-1 score tertinggi diraih oleh algoritma random forest dan disusul oleh decision tree dan xgboost. Sedangkan untuk nilai f-1 score terendah ada pada algoritma logistic regression.
 
+## Kesimpulan
+Berdasarkan percobaan yang dllakukan pada proyek ini ada beberapa tahapan preprocessing yang harus dilakukan agar mampu menghasilkan model yang optimum. Tahap preprocessing tersebut meliputi encoding fitur kategori, pemisahan data training dan data testing, serta scaling data numerik. Kemudian berdasarkan uji coba pada proyek ini, model machine learning decision tree, random forest dan xgboost algoritma mampu melakukan prediksi gagal jantung dengan akurasi diatas 0,8 atau melebihi 80%.
+
 ## Referensi
 [1] Adi, S., & Wintarti, A. (2022). KOMPARASI METODE SUPPORT VECTOR MACHINE (SVM), K-NEAREST NEIGHBORS (KNN), DAN RANDOM FOREST (RF) UNTUK PREDIKSI PENYAKIT GAGAL JANTUNG. MATHunesa: Jurnal Ilmiah Matematika, 10(2), 258-268.
 
@@ -303,13 +383,13 @@ Dari data yang ditunjukkan  oleh tabel 5, dapat kita simpulkan bahwasanya nilai 
 
 [3] Michael, V. (2019, May 9). Machine Learning: Mengenal Logistic Regression. Retrieved October 8, 2022, from Medium: https://vincentmichael089.medium.com/machine-learning-2-logistic-regression-96b3d4e7b603
 
-[[4](https://binus.ac.id/bandung/2019/12/algoritma-naive-bayes/)] Algoritma Naive Bayes
+[4] Widianto, M. H. (n.d.). Algoritma Naive Bayes. Retrieved October 8, 2022, from Binus University: https://binus.ac.id/bandung/2019/12/algoritma-naive-bayes/
 
-[[5](https://medium.com/@raihanaglest/pemahaman-decision-tree-3cb3ab1a27c9)] Pemahaman Decision Tree
+[5] Lestari, R. A. (2019, October 30). PEMAHAMAN DECISION TREE. Retrieved October 8, 2022, from Medium: https://medium.com/@raihanaglest/pemahaman-decision-tree-3cb3ab1a27c9
 
-[[6](https://id.wikipedia.org/wiki/Random_forest)] Random Forest
+[6]  Ho, Tin Kam (1995). Random Decision Forests (PDF). Proceedings of the 3rd International Conference on Document Analysis and Recognition, Montreal, QC, 14–16 August 1995. hlm. 278–282
 
-[[7](https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d)] XGBoost Algorithm: Long May She Reign
+[7]  Morde, V. (2019, April 8). XGBoost Algorithm: Long May She Reign! Retrieved October 8, 2022, from Medium: https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d
 
 
 
